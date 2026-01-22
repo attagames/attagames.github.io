@@ -1,105 +1,489 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy | ATTA Games</title>
+  <meta name="description" content="ATTA Games Teknoloji A.Ş. – Privacy Policy for Card Flow, Number Attack, Focus Force: 3D Challenge and https://attagames.github.io" />
   <meta name="robots" content="index,follow" />
-  <link rel="icon" href="/logo.ico" type="image/x-icon">
-  <link rel="canonical" href="https://atta.games/privacy.html" />
-  <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- Optional: keep or remove -->
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:rgba(255,255,255,.06);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.12);
+      --brand:#B21F1F;
+      --radius:18px;
+      --shadow:0 18px 55px rgba(0,0,0,.45);
+      --max:980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(178,31,31,.25), transparent 55%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(178,31,31,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{color:#ffb3b3; text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 56px}
+    header{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:16px; margin-bottom:18px;
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:6px;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:7px 10px; border:1px solid var(--line);
+      border-radius:999px; background:rgba(255,255,255,.04);
+      width:fit-content; color:var(--muted);
+      font-size:13px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background:var(--brand); box-shadow:0 0 0 4px rgba(178,31,31,.18);
+      flex:0 0 auto;
+    }
+    h1{
+      margin:8px 0 0;
+      font-size:32px; letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      max-width:62ch;
+      font-size:14.5px;
+    }
+
+    .tools{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+      padding-top:6px;
+    }
+    .btn{
+      appearance:none; border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      padding:9px 12px; border-radius:12px;
+      cursor:pointer; font-weight:600;
+      display:inline-flex; align-items:center; gap:8px;
+      transition:transform .08s ease, background .2s ease, border-color .2s ease;
+      user-select:none;
+    }
+    .btn:hover{background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.18)}
+    .btn:active{transform:translateY(1px)}
+    .btn small{color:var(--muted); font-weight:700; font-family:var(--mono)}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .content{
+      padding:22px 20px;
+    }
+
+    .meta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin:0 0 12px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .pill code{font-family:var(--mono); color:var(--text); font-size:12.5px}
+
+    h2{
+      margin:18px 0 8px;
+      font-size:18px;
+      letter-spacing:-.01em;
+    }
+    h3{
+      margin:14px 0 6px;
+      font-size:15.5px;
+      color:var(--text);
+    }
+
+    p{margin:0 0 10px}
+    ul{margin:8px 0 14px 18px; padding:0}
+    li{margin:6px 0}
+    .hr{
+      height:1px; background:var(--line);
+      margin:16px 0;
+    }
+    footer{
+      margin-top:14px; color:var(--muted);
+      font-size:13px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+    }
+    .note{
+      border-left:3px solid var(--brand);
+      padding:10px 12px;
+      background:rgba(178,31,31,.10);
+      border-radius:12px;
+      color:var(--text);
+      margin:12px 0 14px;
+    }
+    .muted{color:var(--muted)}
+    .toplink{font-family:var(--mono); font-size:12.5px}
+    @media (max-width:560px){
+      h1{font-size:26px}
+      .content{padding:18px 16px}
+      header{flex-direction:column; align-items:stretch}
+      .tools{justify-content:flex-start}
+    }
+    @media print{
+      body{background:#fff; color:#111}
+      .card{box-shadow:none; border-color:#ddd; background:#fff}
+      .btn,.kicker,.pill{display:none !important}
+      a{color:#111; text-decoration:underline}
+    }
+  </style>
 </head>
+
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html"><span class="logo">A</span><span class="brand-text">ATTA Games</span></a>
-      <nav class="menu" aria-label="Primary">
-        <a href="index.html#contact">İletişim</a>
-        <a class="active" href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="legal">
-    <div class="container legal-inner">
-      <h1>Privacy Policy</h1>
-      <p class="muted">Effective date: <strong>REPLACE_WITH_DATE</strong></p>
-
-      <section>
-        <h2>1) Who we are</h2>
-        <p>
-          This website is operated by <strong>ATTA Games</strong> (“we”, “us”). Contact: <strong>REPLACE_WITH_EMAIL</strong>.
+  <a id="top"></a>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="kicker"><span class="dot"></span> ATTA Games Teknoloji A.Ş. · Privacy Policy</div>
+        <h1>Privacy Policy</h1>
+        <p class="sub">
+          This page explains how we collect, use, disclose, and safeguard information when you use our games and website.
         </p>
-      </section>
-
-      <section>
-        <h2>2) Data we collect</h2>
-        <ul>
-          <li><strong>Website analytics (optional):</strong> If enabled, we may collect aggregated usage data (e.g., page views, device type).</li>
-          <li><strong>Contact messages:</strong> If you email us, we process your email address and message content to respond.</li>
-          <li><strong>Game data:</strong> Our games (if applicable) may collect device identifiers, crash logs, and in-app events for performance and analytics.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>3) How we use data</h2>
-        <ul>
-          <li>To operate and improve our products and services</li>
-          <li>To respond to support inquiries</li>
-          <li>To ensure security and prevent abuse</li>
-          <li>To comply with legal obligations</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>4) Sharing</h2>
-        <p>
-          We may share data with service providers (analytics, crash reporting, hosting) strictly to deliver the service.
-          We do not sell personal data.
-        </p>
-      </section>
-
-      <section>
-        <h2>5) Retention</h2>
-        <p>
-          We retain personal data only as long as necessary for the purposes described above, unless a longer retention period is required by law.
-        </p>
-      </section>
-
-      <section>
-        <h2>6) Your rights</h2>
-        <p>
-          You may request access, correction, deletion, or restriction of your personal data by contacting: <strong>REPLACE_WITH_EMAIL</strong>.
-        </p>
-      </section>
-
-      <section>
-        <h2>7) Contact</h2>
-        <p>
-          Email: <a href="#" id="emailLink">REPLACE_WITH_EMAIL</a><br />
-          Address: <strong>REPLACE_WITH_ADDRESS</strong><br />
-          LinkedIn: <a href="#" id="linkedinLink" rel="noopener">REPLACE_WITH_LINKEDIN</a>
-        </p>
-      </section>
-
-      <div class="legal-actions">
-        <a class="btn ghost" href="index.html">← Back to Home</a>
-        <a class="btn ghost" href="terms.html">Terms of Use →</a>
       </div>
-    </div>
-  </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div><strong>© <span id="year"></span> ATTA Games</strong></div>
-      <div class="footer-links">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+      <div class="tools" aria-label="Page tools">
+        <button class="btn" type="button" onclick="window.print()" title="Print this page">
+          Print <small>Ctrl+P</small>
+        </button>
+        <button class="btn" type="button" onclick="copyLink()" title="Copy page link">
+          Copy Link
+        </button>
       </div>
-    </div>
-  </footer>
+    </header>
 
-  <script src="assets/app.js"></script>
+    <main class="card" role="main">
+      <div class="content">
+        <div class="meta">
+          <span class="pill">Company: <code>ATTA GAMES TEKNOLOJI ANONIM SIRKETI</code></span>
+          <span class="pill">Contact: <a href="mailto:privacy@atta.games">privacy@atta.games</a></span>
+          <span class="pill">Last updated: <code>16/01/2026</code></span>
+        </div>
+
+        <div class="note">
+          <strong>IF YOU DO NOT AGREE WITH THE TERMS OF THIS PRIVACY POLICY, PLEASE DO NOT ACCESS THE PLATFORM.</strong>
+        </div>
+
+        <p>
+          ATTA GAMES TEKNOLOJI ANONIM SIRKETI (“we” or “us” or “our”) respects the privacy of our users (“user” or “you”).
+          This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our
+          mobile application "Card Flow" ("Application"), "Number Attack" ("Application"), "Focus Force: 3D Challenge"
+          ("Application"), website https://attagames.github.io ("Website"), or any other media form, media channel, mobile
+          website, or mobile application related or connected thereto (collectively, the “Platform”). Please read this
+          Privacy Policy carefully.
+        </p>
+
+        <p class="muted">
+          We reserve the right to make changes to this Privacy Policy at any time and for any reason. We will alert you
+          about any changes by updating the “Last updated” date of this Privacy Policy. Any changes or modifications will
+          be effective immediately upon posting the updated Privacy Policy on the Platform, and you waive the right to
+          receive specific notice of each such change or modification. You are encouraged to periodically review this
+          Privacy Policy to stay informed of updates. You will be deemed to have been made aware of, will be subject to,
+          and will be deemed to have accepted the changes in any revised Privacy Policy by your continued use of the
+          Application, Website, or Platform after the date such revised Privacy Policy is posted.
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>COLLECTION OF YOUR INFORMATION</h2>
+        <p>We may collect information about you in a variety of ways. The information we may collect on the Platform includes:</p>
+
+        <h3>Personal Data</h3>
+        <p>
+          Personally identifiable information, such as your name, address, email address, and telephone number, and
+          demographic information, such as your age, gender, hometown, and interests, that you voluntarily give to us
+          when you choose to participate in various activities related to the Platform, such as registration, user
+          feedback, giveaways, surveys, and reviews. You are under no obligation to provide us with personal information
+          of any kind, however your refusal to do so may prevent you from using certain features of the Platform.
+        </p>
+
+        <p>
+          For a better experience while using the Platform we collect information about the devices where you install or
+          access the Platform, depending on the permissions you have granted which may include, but are not limited to,
+          operating system, hardware version, device settings, file and software names and types, battery and signal
+          strength, device identifiers, advertisement identifiers, connection information such as the name of your mobile
+          operator or ISP, language and time zone. To access some features of the Platform, you may be required to
+          connect to a third-party account within the Platform (i.e., Google, Facebook, Apple, Twitter). If you do not
+          grant access you will not have the ability to use some of the features on the Platform.
+        </p>
+
+        <h3>Derivative Data</h3>
+        <p>
+          Information our servers may automatically collect when you access the Platform, such as your IP address, your
+          browser type, your operating system, mobile device information, location, your access times, and the pages you
+          have viewed directly before and after accessing the Website.
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>USE OF YOUR INFORMATION</h2>
+        <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Platform to:</p>
+        <ul>
+          <li>Facilitate proper use of the Platform</li>
+          <li>Provide access to the Platform</li>
+          <li>Perform the Platform-related operations</li>
+          <li>Assist us in analyzing how the Platform is used</li>
+          <li>Compile anonymous statistical data and analysis for use internally or with third parties</li>
+          <li>Deliver targeted advertising</li>
+          <li>Provide you with push notifications</li>
+          <li>Increase the efficiency and operation of the Platform</li>
+          <li>Monitor and analyze usage and trends to improve your experience</li>
+          <li>Notify you of updates to the Platform</li>
+          <li>Offer new products, services, and/or recommendations to you</li>
+          <li>Perform other business activities as needed</li>
+          <li>Request feedback and contact you about your use of the Platform</li>
+          <li>Resolve disputes and troubleshoot problems</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2>DISCLOSURE OF YOUR INFORMATION</h2>
+        <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:</p>
+
+        <h3>By Law or to Protect Rights</h3>
+        <p>
+          If we believe the release of information about you is necessary to respond to legal process, to investigate or
+          remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may
+          share your information as permitted or required by any applicable law, rule, or regulation. This includes
+          exchanging information with other entities for fraud protection and privacy risk reduction.
+        </p>
+
+        <h3>Third-Party Service Providers</h3>
+        <p>The app does use third-party services that may collect information used to identify you. Link to the privacy policy of third-party service providers used by the app;</p>
+        <ul>
+          <li>Google Play Services</li>
+          <li>AdMob</li>
+          <li>Google Analytics for Firebase</li>
+          <li>Firebase Crashlytics</li>
+          <li>OneSignal</li>
+          <li>RevenueCat</li>
+        </ul>
+
+        <h3>Marketing Communications</h3>
+        <p>
+          With your consent, or with an opportunity for you to withdraw consent, we may share your information with third
+          parties for marketing purposes, as permitted by law.
+        </p>
+
+        <h3>Online Postings</h3>
+        <p>
+          If you post any public content to the Platform, such content may be viewed by all users and may be publicly
+          distributed outside the Platform in perpetuity.
+        </p>
+
+        <h3>Third-Party Advertisers</h3>
+        <p>
+          We use a third party advertising company to serve ads when you visit the Platform. This company may use
+          information about your visits to the Platform and other websites that are contained in web cookies to provide
+          advertisements about goods and services of interest to you.
+        </p>
+
+        <h3>Business Partners</h3>
+        <p>
+          We may share your information with our business partners to offer you certain products, services, or promotions
+          you may enjoy.
+        </p>
+
+        <h3>Other Third Parties</h3>
+        <p>
+          We may share your information with advertisers and investors for the purpose of conducting general business
+          analysis. We may also share your information with such third parties for marketing purposes, as permitted by law.
+        </p>
+
+        <h3>Sale or Bankruptcy</h3>
+        <p>
+          If we reorganize or sell all or a portion of our assets, undergo a merger, or are acquired by another entity,
+          we may transfer your information to the successor entity. If we go out of business or enter bankruptcy, your
+          information would be an asset transferred or acquired by a third party. You acknowledge that such transfers may
+          occur and that the transferee may decline to honor commitments we made in this Privacy Policy.
+        </p>
+
+        <p class="muted">
+          We are not responsible for the actions of third parties with whom you share personal or sensitive data, and we
+          have no authority to manage or control third-party solicitations. If you no longer wish to receive
+          correspondence, emails or other communications from third parties, you are responsible for contacting the third
+          party directly.
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>TRACKING TECHNOLOGIES</h2>
+        <h3>Cookies, Web Beacons, and Tracking Pixels</h3>
+        <p>
+          We use cookies, web beacons, tracking pixels, and other tracking technologies on the Platform to help customize
+          the Platform and improve your experience. When you access the Platform, your personal information is not
+          collected through the use of tracking technology. Most browsers are set to accept cookies by default. You can
+          remove or reject cookies, but be aware that such action could affect the availability and functionality of the
+          Platform. You may not decline web beacons; however, they can be rendered ineffective by declining all cookies or
+          by modifying your web browser’s settings to notify you each time a cookie is tendered, permitting you to accept
+          or decline cookies on an individual basis.
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>THIRD-PARTY WEBSITES</h2>
+        <p>
+          The Platform contains links to third-party websites and applications of interest, including advertisements and
+          external services, that are not affiliated with us. Once you have used these links to leave the Platform, any
+          information you provide to these third parties is not covered by this Privacy Policy, and we cannot guarantee
+          the safety and privacy of your information. Before visiting and providing any information to any third-party
+          websites, you should inform yourself of the privacy policies and practices (if any) of the third party
+          responsible for that website, and should take those steps necessary to, in your discretion, protect the privacy
+          of your information. We are not responsible for the content or privacy and security practices and policies of
+          any third parties, including other sites, services or applications that may be linked to or from the Platform.
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>SECURITY OF YOUR INFORMATION</h2>
+        <p>
+          We use administrative, technical, and physical security measures to help protect your personal information. Your
+          personal data is encrypted. While we have taken reasonable steps to secure the personal information you provide
+          to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method
+          of data transmission can be guaranteed against any interception or other type of misuse. Any information disclosed
+          online is vulnerable to interception and misuse by unauthorized parties. Therefore, we cannot guarantee complete
+          security if you provide personal information.
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>RIGHTS RELATED TO YOUR PERSONAL INFORMATION</h2>
+        <p>
+          The General Data Protection Regulation or "GDPR" gives certain rights to individuals in relation to their personal
+          data. In addition, we offer transparency and access controls to help users take advantage of those rights. As
+          available and except as limited under applicable law, the rights afforded to individuals are:
+        </p>
+        <ul>
+          <li>Right of access - the right to be informed of, and request access to, the personal data we process about you;</li>
+          <li>Right to rectification - the right to request that we amend or update your personal data where it is inaccurate or incomplete;</li>
+          <li>Right to erasure - the right to request that we delete your personal data;</li>
+          <li>Right to restrict - the right to request that we temporarily or permanently stop processing all or some of your personal data;</li>
+          <li>
+            Right to object –
+            <ul>
+              <li>the right, at any time, to object to us processing your personal data on grounds relating to your particular situation;</li>
+              <li>the right to object to your personal data being processed for direct marketing purposes;</li>
+            </ul>
+          </li>
+          <li>Right to data portability - the right to request a copy of your personal data in electronic format and the right to transmit that personal data for use in another party’s service; and</li>
+          <li>Right not to be subject to automated decision-making - the right to not be subject to a decision based solely on automated decision making, including profiling, where the decision would have a legal effect on you or produce a similarly significant effect.</li>
+        </ul>
+
+        <p>
+          You may also contact us at <a href="mailto:privacy@atta.games">privacy@atta.games</a> and inform us of your desire
+          to exercise your rights. We will reply with further instructions to verify your identity and provide details
+          regarding the process. Please note that we may need to retain certain information for recordkeeping purposes or
+          to complete transactions, or when required by law.
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>SENSITIVE PERSONAL INFORMATION</h2>
+        <p>
+          At no time should you submit sensitive personal information to the Platform. This includes your social security
+          number, bank information, or other sensitive personal information. If you elect to submit such information to us,
+          it will be subject to this Privacy Policy.
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>POLICY FOR CHILDREN</h2>
+        <p>
+          The Platform is designed for those 13 years of age or older. We do not knowingly collect any personally
+          identifiable information from anyone under the age of 13. We do not knowingly solicit information from or market
+          to children under the age of 13. If you become aware of any data we have collected from children under age 13,
+          please contact us at <a href="mailto:privacy@atta.games">privacy@atta.games</a>
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>CONTACT US</h2>
+        <p>
+          If you have questions or comments about this Privacy Policy, please contact us at
+          <a href="mailto:privacy@atta.games">privacy@atta.games</a>
+        </p>
+
+        <footer>
+          <span class="muted">© <span id="year"></span> ATTA Games Teknoloji A.Ş.</span>
+          <a class="toplink" href="#top" aria-label="Back to top">↑ Back to top</a>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Set year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Copy current page link
+    async function copyLink(){
+      try{
+        await navigator.clipboard.writeText(window.location.href);
+        toast("Link copied.");
+      }catch(e){
+        // Fallback
+        const tmp = document.createElement("textarea");
+        tmp.value = window.location.href;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand("copy");
+        tmp.remove();
+        toast("Link copied.");
+      }
+    }
+
+    // Lightweight toast
+    function toast(msg){
+      const t = document.createElement("div");
+      t.textContent = msg;
+      t.style.position="fixed";
+      t.style.left="50%";
+      t.style.bottom="22px";
+      t.style.transform="translateX(-50%)";
+      t.style.padding="10px 12px";
+      t.style.background="rgba(0,0,0,.72)";
+      t.style.border="1px solid rgba(255,255,255,.14)";
+      t.style.color="rgba(255,255,255,.92)";
+      t.style.borderRadius="12px";
+      t.style.boxShadow="0 12px 40px rgba(0,0,0,.35)";
+      t.style.fontSize="13px";
+      t.style.zIndex="9999";
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.style.opacity="0"; t.style.transition="opacity .25s ease"; }, 1200);
+      setTimeout(()=>{ t.remove(); }, 1550);
+    }
+  </script>
 </body>
 </html>
