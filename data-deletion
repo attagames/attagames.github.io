@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Deletion | ATTA Games</title>
+  <meta name="description" content="Kullanıcı verisi silme talebi (Data Deletion Request) sayfası. Talep adımları, doğrulama ve iletişim kanalları." />
+  <meta name="robots" content="index,follow" />
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#121a2a;
+      --text:#e8eefc;
+      --muted:#a9b5d1;
+      --line:rgba(255,255,255,.08);
+      --accent:#6ee7ff;
+      --accent2:#a78bfa;
+      --ok:#34d399;
+      --warn:#fbbf24;
+      --bad:#fb7185;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background: radial-gradient(1200px 600px at 10% 0%, rgba(110,231,255,.12), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(167,139,250,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(8px);
+      background: rgba(11,15,23,.65);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 18px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:34px; height:34px;
+      border-radius:12px;
+      background: linear-gradient(135deg, rgba(110,231,255,.9), rgba(167,139,250,.9));
+      box-shadow: 0 8px 20px rgba(110,231,255,.12);
+      display:grid; place-items:center;
+      color:#07101c; font-weight:900;
+      user-select:none;
+    }
+    .nav{
+      display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .nav a{color:var(--muted)}
+    .nav a:hover{color:var(--text)}
+    main{padding: 26px 0 54px}
+    .hero{
+      display:grid; gap:14px;
+      padding: 22px 0 8px;
+    }
+    h1{
+      margin:0;
+      font-size: clamp(26px, 3.2vw, 42px);
+      letter-spacing:-.4px;
+    }
+    .subtitle{color:var(--muted); max-width: 80ch; margin:0}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      margin-top:18px;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns: 1fr;}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .card h2{
+      margin: 0 0 10px 0;
+      font-size:18px;
+      letter-spacing:.1px;
+    }
+    .card p{margin:10px 0; color:var(--muted)}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
+      font-size:13px;
+    }
+    .badge b{color:var(--text)}
+    .steps{margin:12px 0 0 0; padding:0; list-style:none; display:grid; gap:10px;}
+    .step{
+      border:1px solid var(--line);
+      border-radius: 14px;
+      padding:12px 12px;
+      background: rgba(255,255,255,.02);
+    }
+    .step .k{
+      font-family: var(--mono);
+      font-size:12px;
+      color: rgba(232,238,252,.9);
+      opacity:.9;
+    }
+    .step .v{color:var(--muted); margin-top:6px; font-size:14px;}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-weight:600;
+      font-size:14px;
+      text-decoration:none;
+      cursor:pointer;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(110,231,255,.18), rgba(167,139,250,.18));
+      border-color: rgba(110,231,255,.25);
+    }
+    .btn:hover{transform: translateY(-1px); transition:.15s ease}
+    .mini{
+      font-size:12px; color:var(--muted);
+      border-top:1px dashed var(--line);
+      margin-top:14px; padding-top:12px;
+    }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      font-size:12px;
+      color: var(--muted);
+      margin-right:8px;
+    }
+    .note{
+      border-left: 3px solid rgba(110,231,255,.45);
+      padding: 10px 12px;
+      background: rgba(110,231,255,.06);
+      border-radius: 12px;
+      color: var(--muted);
+      margin-top: 12px;
+      font-size:14px;
+    }
+    .contactBox .row{
+      display:flex; flex-direction:column; gap:6px;
+      padding: 10px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .contactBox .row:last-child{border-bottom:none}
+    .label{font-size:12px; color:var(--muted)}
+    .value{font-size:14px; color:var(--text)}
+    footer{
+      border-top:1px solid var(--line);
+      background: rgba(11,15,23,.65);
+    }
+    .foot{
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      color:var(--muted); font-size:13px;
+      padding:18px 18px;
+      max-width:var(--max); margin:0 auto;
+    }
+    code.inline{
+      font-family:var(--mono);
+      font-size:12px;
+      padding:2px 6px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background: rgba(255,255,255,.02);
+      color: rgba(232,238,252,.92);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">A</div>
+          <div>
+            <div>ATTA Games</div>
+            <div style="font-size:12px;color:var(--muted);font-weight:500">Data Deletion Request</div>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="/">Ana Sayfa</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="#request">Talep</a>
+          <a href="#contact">İletişim</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <span class="badge">SLA hedefi: <b>30 gün</b> • Doğrulama: <b>güvenlik odaklı</b></span>
+        <h1>Veri Silme Talebi (Data Deletion)</h1>
+        <p class="subtitle">
+          Bu sayfa, ATTA Games ürünleri için kullanıcıların kişisel verilerinin silinmesine yönelik resmi başvuru kanalıdır.
+          Talebinizi iletin; kimlik/doğrulama süreci tamamlandıktan sonra ilgili hesap/veri setleri operasyonel olarak silinir veya anonimleştirilir.
+        </p>
+      </section>
+
+      <section class="grid" id="request">
+        <div class="card">
+          <h2>Talep Nasıl İletilir?</h2>
+          <p>
+            En hızlı akış: tek bir e-posta ile doğru bilgileri iletmeniz. Eksik bilgi gelirse süreç uzar.
+          </p>
+
+          <ul class="steps">
+            <li class="step">
+              <div class="k">1) Konu</div>
+              <div class="v">E-postanın konusuna: <code class="inline">Data Deletion Request</code> yazın.</div>
+            </li>
+            <li class="step">
+              <div class="k">2) Zorunlu Bilgiler</div>
+              <div class="v">
+                Kullanıcı ID / oyun içi ID, kayıtlı e-posta (varsa), platform (iOS/Android), ülke ve yaklaşık son giriş tarihi.
+              </div>
+            </li>
+            <li class="step">
+              <div class="k">3) Kapsam</div>
+              <div class="v">
+                “Hesap silme”, “veri silme”, “reklam/analitik tanımlayıcı silme” gibi kapsamı net belirtin.
+              </div>
+            </li>
+            <li class="step">
+              <div class="k">4) Doğrulama</div>
+              <div class="v">
+                Güvenlik nedeniyle ek doğrulama isteyebiliriz (ör. hesabın sahibi olduğunuzu ispat).
+              </div>
+            </li>
+            <li class="step">
+              <div class="k">5) Sonuç</div>
+              <div class="v">
+                Talep tamamlanınca size kapanış bildirimi geçilir. Teknik/log kayıtları yasal zorunluluk kapsamında sınırlı süre tutulabilir.
+              </div>
+            </li>
+          </ul>
+
+          <div class="ctaRow">
+            <!-- CONTACT_EMAIL_HERE alanını gerçek e-postanızla değiştirin -->
+            <a class="btn primary"
+               href="mailto:CONTACT_EMAIL_HERE?subject=Data%20Deletion%20Request&body=Merhaba%20ATTA%20Games%2C%0A%0AData%20Deletion%20Request%20kapsam%C4%B1nda%20silme%20talebimi%20iletiyorum.%0A%0A-%20Oyun%20Ad%C4%B1%3A%0A-%20Platform%20(iOS%2FAndroid)%3A%0A-%20Kullan%C4%B1c%C4%B1%20ID%20%2F%20Oyun%20i%C3%A7i%20ID%3A%0A-%20Kay%C4%B1tl%C4%B1%20E-posta%20(varsa)%3A%0A-%20%C3%9Clke%3A%0A-%20Son%20giri%C5%9F%20tarihi%20(yakla%C5%9F%C4%B1k)%3A%0A-%20Talep%20kapsam%C4%B1%20(Hesap%20silme%2FVeri%20silme%2FReklam%2FAnalitik%20tan%C4%B1mlay%C4%B1c%C4%B1)%3A%0A-%20Ek%20a%C3%A7%C4%B1klama%3A%0A%0ATe%C5%9Fekk%C3%BCrler.">
+              E-posta ile Talep Oluştur
+            </a>
+
+            <button class="btn" type="button" onclick="copyTemplate()">
+              Talep Metnini Kopyala
+            </button>
+          </div>
+
+          <div class="note">
+            <span class="pill">Pratik öneri</span>
+            Tek e-postada tüm alanları doldur: “ping-pong” azalır, süreç hızlanır.
+          </div>
+
+          <div class="mini">
+            <b>Silme kapsamı</b>: Hesap profili, oyun içi ilerleme, destek kayıtları, cihaz/analitik tanımlayıcılar (varsa) gibi veri setleri.
+            Üçüncü taraf servislerde (ör. ödeme sağlayıcı, platform logları) yasal/teknik gerekliliklere bağlı istisnalar olabilir.
+          </div>
+        </div>
+
+        <aside class="card contactBox" id="contact">
+          <h2>İletişim</h2>
+          <p>Resmi başvuru ve takip için aşağıdaki kanalları kullanın.</p>
+
+          <div class="row">
+            <div class="label">E-posta</div>
+            <div class="value"><a href="mailto:CONTACT_EMAIL_HERE">CONTACT_EMAIL_HERE</a></div>
+          </div>
+
+          <div class="row">
+            <div class="label">Web</div>
+            <div class="value"><a href="https://atta.games" target="_blank" rel="noopener">atta.games</a></div>
+          </div>
+
+          <div class="row">
+            <div class="label">LinkedIn</div>
+            <div class="value"><a href="CONTACT_LINKEDIN_URL_HERE" target="_blank" rel="noopener">ATTA Games LinkedIn</a></div>
+          </div>
+
+          <div class="row">
+            <div class="label">Adres</div>
+            <div class="value">CONTACT_ADDRESS_HERE</div>
+          </div>
+
+          <div class="mini">
+            Bu sayfa; uygulama mağazası doğrulamaları ve platform politika gereksinimleri için “tek kaynak” olacak şekilde tasarlanmıştır.
+          </div>
+        </aside>
+      </section>
+
+      <section class="card" style="margin-top:16px">
+        <h2>Sık Sorulanlar</h2>
+
+        <p><b>Silme ne kadar sürer?</b><br/>
+          Hedefimiz <code class="inline">30 gün</code> içinde tamamlamak. Doğrulama ve kapsam genişliği süreyi etkiler.
+        </p>
+
+        <p><b>Hesabımı silince geri alabilir miyim?</b><br/>
+          Silme işlemi tamamlandıktan sonra geri dönüş çoğu senaryoda mümkün değildir. Talep göndermeden önce emin olun.
+        </p>
+
+        <p><b>Hangi veriler silinmeyebilir?</b><br/>
+          Yasal zorunluluklar, dolandırıcılık önleme, muhasebe/ödeme kayıtları veya platform güvenlik logları gibi alanlarda sınırlı süreli saklama gerekebilir.
+        </p>
+
+        <p><b>Çocuk kullanıcılar için süreç farklı mı?</b><br/>
+          Ebeveyn/vasi doğrulaması talep edilebilir. Talep metninde bu durumu açıkça belirtin.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div>© <span id="y"></span> ATTA Games • Data Deletion</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="#request">Talep</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    function copyTemplate(){
+      const text =
+`Merhaba ATTA Games,
+
+Data Deletion Request kapsamında silme talebimi iletiyorum.
+
+- Oyun Adı:
+- Platform (iOS/Android):
+- Kullanıcı ID / Oyun içi ID:
+- Kayıtlı E-posta (varsa):
+- Ülke:
+- Son giriş tarihi (yaklaşık):
+- Talep kapsamı (Hesap silme / Veri silme / Reklam-Analitik tanımlayıcı):
+- Ek açıklama:
+
+Teşekkürler.`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Talep metni kopyalandı.");
+      }).catch(() => {
+        alert("Kopyalama başarısız. Tarayıcı izinlerini kontrol edin.");
+      });
+    }
+  </script>
+</body>
+</html>
