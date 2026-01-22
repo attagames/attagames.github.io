@@ -1,93 +1,403 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Terms of Use | ATTA Games</title>
-  <link rel="icon" href="/logo.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terms & Conditions | Atta Games</title>
+  <meta name="description" content="Terms and Conditions for Atta Games Teknoloji Anonim Şirketi mobile games." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://atta.games/terms.html" />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:rgba(255,255,255,.06);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.12);
+      --brand:#B21F1F;
+      --radius:18px;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --max:980px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 450px at 20% 10%, rgba(178,31,31,.18), transparent 55%),
+        radial-gradient(700px 350px at 80% 0%, rgba(178,31,31,.12), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.9}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 18px 60px;
+    }
+
+    header{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:16px;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      min-width: 0;
+    }
+
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background: linear-gradient(135deg, rgba(178,31,31,.95), rgba(139,26,26,.7));
+      box-shadow: 0 12px 26px rgba(178,31,31,.22);
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+    }
+    .logo span{
+      font-weight:800;
+      letter-spacing:.5px;
+      font-size:14px;
+    }
+
+    .brand h1{
+      margin:0;
+      font-size:16px;
+      letter-spacing:.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand p{
+      margin:0;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .top-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex:0 0 auto;
+    }
+
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .pill strong{color:var(--text); font-weight:700}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero{
+      padding:22px 22px 16px;
+      border-bottom:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), transparent);
+    }
+    .hero h2{
+      margin:0 0 6px;
+      font-size:22px;
+      letter-spacing:.2px;
+    }
+    .hero .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .content{
+      padding:18px 22px 22px;
+    }
+
+    .toc{
+      margin:0 0 18px;
+      padding:14px 14px;
+      border:1px dashed rgba(255,255,255,.18);
+      border-radius:14px;
+      background: rgba(0,0,0,.15);
+    }
+    .toc-title{
+      margin:0 0 8px;
+      font-size:12px;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .toc ol{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .toc a{
+      color:var(--text);
+      text-decoration:underline;
+      text-decoration-color: rgba(178,31,31,.55);
+      text-underline-offset: 3px;
+    }
+
+    section{
+      padding:16px 0;
+      border-top:1px solid var(--line);
+    }
+    section:first-of-type{border-top:none; padding-top:6px}
+    h3{
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    p{margin:0 0 10px; color:var(--muted)}
+    ul{
+      margin:10px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+    li{margin:6px 0}
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+    }
+
+    .footer{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      color:var(--muted);
+      font-size:12px;
+      padding:14px 4px 0;
+    }
+
+    .contact{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-size:12px;
+    }
+    .btn:hover{border-color: rgba(178,31,31,.55)}
+    .dot{
+      width:8px; height:8px; border-radius:99px;
+      background: var(--brand);
+      box-shadow: 0 0 0 4px rgba(178,31,31,.15);
+    }
+
+    @media (max-width: 520px){
+      .hero h2{font-size:20px}
+      header{flex-direction:column; align-items:flex-start}
+      .top-actions{width:100%}
+      .pill{flex:1}
+    }
+
+    @media print{
+      body{background:#fff; color:#000}
+      .card, .toc, .pill, .btn, .logo{box-shadow:none}
+      .card{border:1px solid #ddd}
+      a{text-decoration:underline}
+      .hero{background:none}
+    }
+  </style>
 </head>
+
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html"><span class="logo">A</span><span class="brand-text">ATTA Games</span></a>
-      <nav class="menu" aria-label="Primary">
-        <a href="index.html#contact">İletişim</a>
-        <a href="privacy.html">Privacy</a>
-        <a class="active" href="terms.html">Terms</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="legal">
-    <div class="container legal-inner">
-      <h1>Terms of Use</h1>
-      <p class="muted">Effective date: <strong>REPLACE_WITH_DATE</strong></p>
-
-      <section>
-        <h2>1) Acceptance</h2>
-        <p>
-          By using this website, you agree to these Terms. If you do not agree, please do not use the website.
-        </p>
-      </section>
-
-      <section>
-        <h2>2) Intellectual property</h2>
-        <p>
-          All content, trademarks, and materials on this website are owned by or licensed to <strong>ATTA Games</strong>.
-        </p>
-      </section>
-
-      <section>
-        <h2>3) Permitted use</h2>
-        <ul>
-          <li>You may browse and share links to our pages.</li>
-          <li>You may not copy, reverse engineer, or misuse our content beyond lawful fair use.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>4) Disclaimer</h2>
-        <p>
-          The website is provided “as is” without warranties of any kind. We do not guarantee uninterrupted availability.
-        </p>
-      </section>
-
-      <section>
-        <h2>5) Limitation of liability</h2>
-        <p>
-          To the maximum extent permitted by law, ATTA Games will not be liable for indirect or consequential damages arising from use of the website.
-        </p>
-      </section>
-
-      <section>
-        <h2>6) Contact</h2>
-        <p>
-          Email: <a href="#" id="emailLink">REPLACE_WITH_EMAIL</a><br />
-          Address: <strong>REPLACE_WITH_ADDRESS</strong><br />
-          LinkedIn: <a href="#" id="linkedinLink" rel="noopener">REPLACE_WITH_LINKEDIN</a>
-        </p>
-      </section>
-
-      <div class="legal-actions">
-        <a class="btn ghost" href="privacy.html">← Privacy Policy</a>
-        <a class="btn ghost" href="index.html">Back to Home →</a>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>ATTA</span></div>
+        <div style="min-width:0">
+          <h1>Atta Games Teknoloji Anonim Şirketi</h1>
+          <p>Mobile Games — Terms &amp; Conditions</p>
+        </div>
       </div>
-    </div>
-  </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div><strong>© <span id="year"></span> ATTA Games</strong></div>
-      <div class="footer-links">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+      <div class="top-actions">
+        <div class="pill" title="Last updated">
+          <strong>Last Updated:</strong> <span id="lastUpdated">2026-01-22</span>
+        </div>
       </div>
-    </div>
-  </footer>
+    </header>
 
-  <script src="assets/app.js"></script>
+    <main class="card" role="main">
+      <div class="hero">
+        <h2>Terms &amp; Conditions</h2>
+        <p class="sub">
+          Welcome to the mobile games by Atta Games Teknoloji Anonim Şirketi. By downloading, installing,
+          or playing our games (<strong>Card Flow</strong>, <strong>Number Attack</strong>, <strong>Focus Force: 3D Challenge</strong>),
+          you agree to these Terms and Conditions. If you do not agree, please do not use our games.
+        </p>
+      </div>
+
+      <div class="content">
+        <nav class="toc" aria-label="Table of contents">
+          <p class="toc-title">On this page</p>
+          <ol>
+            <li><a href="#acceptance">Acceptance of Terms</a></li>
+            <li><a href="#license">License</a></li>
+            <li><a href="#conduct">User Conduct</a></li>
+            <li><a href="#iap">In-App Purchases</a></li>
+            <li><a href="#ip">Intellectual Property</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#termination">Termination</a></li>
+            <li><a href="#liability">Limitation of Liability</a></li>
+            <li><a href="#updates">Updates and Changes</a></li>
+            <li><a href="#contact">Contact Information</a></li>
+          </ol>
+        </nav>
+
+        <section id="acceptance">
+          <h3>1. Acceptance of Terms</h3>
+          <p>
+            These Terms govern your access to and use of our games. By using any of our games,
+            you accept these Terms and our Privacy Policy.
+          </p>
+        </section>
+
+        <section id="license">
+          <h3>2. License</h3>
+          <p>
+            Atta Games grants you a limited, non-exclusive, non-transferable, revocable license to play our games
+            for personal, non-commercial use. You may not distribute, modify, or reverse-engineer any part of our games.
+          </p>
+        </section>
+
+        <section id="conduct">
+          <h3>3. User Conduct</h3>
+          <p>You agree not to:</p>
+          <ul>
+            <li>Use cheats, bots, exploits, or unauthorized software to manipulate the game.</li>
+            <li>Harass, abuse, or disrupt the experience of other players.</li>
+            <li>Violate any applicable local, national, or international laws while using our games.</li>
+          </ul>
+        </section>
+
+        <section id="iap">
+          <h3>4. In-App Purchases</h3>
+          <p>
+            Some of our games offer in-app purchases. These transactions are processed through Google Play, and we do not
+            store any payment details. All purchases are final and non-refundable unless required by law.
+          </p>
+        </section>
+
+        <section id="ip">
+          <h3>5. Intellectual Property</h3>
+          <p>
+            All content, including but not limited to graphics, game mechanics, and trademarks, are owned by Atta Games.
+            Unauthorized use of our intellectual property is prohibited.
+          </p>
+        </section>
+
+        <section id="privacy">
+          <h3>6. Privacy</h3>
+          <p>
+            We respect user privacy and comply with Google Play policies. For details on data collection and processing,
+            please refer to our Privacy Policy.
+          </p>
+        </section>
+
+        <section id="termination">
+          <h3>7. Termination</h3>
+          <p>
+            We reserve the right to terminate or suspend your access to our games at any time for violating these Terms
+            or engaging in harmful behavior.
+          </p>
+        </section>
+
+        <section id="liability">
+          <h3>8. Limitation of Liability</h3>
+          <p>
+            Atta Games shall not be liable for any direct, indirect, incidental, or consequential damages resulting from
+            your use of our games.
+          </p>
+        </section>
+
+        <section id="updates">
+          <h3>9. Updates and Changes</h3>
+          <p>
+            We may update these Terms from time to time. Continued use of our games after updates means acceptance of the new Terms.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h3>10. Contact Information</h3>
+          <p>For any questions regarding these Terms, you can contact us.</p>
+          <p>
+            Contact Information: <a class="btn" href="mailto:terms@atta.games"><span class="dot" aria-hidden="true"></span><span><code>terms@atta.games</code></span></a>
+          </p>
+          <p style="margin-top:10px; color:var(--muted)">
+            Atta Games Teknoloji Anonim Şirketi
+          </p>
+        </section>
+
+        <div class="footer" role="contentinfo">
+          <div class="contact">
+            <span>© <span id="year"></span> Atta Games</span>
+            <span aria-hidden="true">•</span>
+            <a class="btn" href="/" title="Back to home">Home</a>
+          </div>
+          <div>
+            <a class="btn" href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Lightweight defaults for GitHub Pages
+    (function () {
+      const y = new Date().getFullYear();
+      document.getElementById("year").textContent = y;
+
+      // If you prefer manual control, delete this block and keep the static text above.
+      // Set default "Last Updated" to today's date at build/runtime.
+      const pad = (n) => String(n).padStart(2, "0");
+      const now = new Date();
+      const iso = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+      const el = document.getElementById("lastUpdated");
+      if (el && !el.dataset.locked) el.textContent = iso;
+    })();
+  </script>
 </body>
 </html>
